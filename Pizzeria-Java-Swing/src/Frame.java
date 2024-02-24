@@ -13,8 +13,8 @@ public class Frame extends JFrame {
         this.setBackground(Color.lightGray);
         this.setDefaultCloseOperation(3);
         this.setTitle("Pizzeria");
-        this.setLocationRelativeTo(null);
         this.setSize(680, 720);
+        this.setLocationRelativeTo(null);
         this.setResizable(false);
         // frame layout set up
         GridBagLayout layout = new GridBagLayout();

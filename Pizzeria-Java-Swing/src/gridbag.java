@@ -10,7 +10,7 @@ import javax.swing.JRadioButton;
 public class gridbag extends JPanel {
 
     gridbag(JRadioButton jRadioButton, JLabel jLabel) {
-        this.setPreferredSize(new Dimension(180, 28));
+        this.setPreferredSize(new Dimension(180, 38));
 
         GridBagLayout layout = new GridBagLayout();
 
@@ -18,7 +18,7 @@ public class gridbag extends JPanel {
         GridBagConstraints c = new GridBagConstraints();
         c.anchor = GridBagConstraints.WEST;
         c.fill = GridBagConstraints.BASELINE;
-        c.insets = new Insets(5, 5, 5, 10);
+        c.insets = new Insets(5, 0, 5, 10);
         c.weightx = 1;
         c.gridx = 0;
         c.gridy = 0;

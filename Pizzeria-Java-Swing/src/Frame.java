@@ -24,40 +24,98 @@ public class Frame extends JFrame {
         GridBagConstraints c = new GridBagConstraints();
 
         c.anchor = GridBagConstraints.NORTHWEST;
-        c.fill = GridBagConstraints.HORIZONTAL;
+        c.fill = GridBagConstraints.BOTH;
         c.weightx = 1;
         c.weighty = 1;
         c.insets = new Insets(5, 2, 3, 5);
         // creating menu
         HashMap<String, String> criteria = new HashMap<String, String>();
         criteria.clear();
-        criteria.put("Thin", "1,75$");
-        criteria.put("Thick", "3$");
+        criteria.put("Thin", "$1.75");
+        criteria.put("Thick", "$3");
 
         // adding component to layout
         c.gridx = 0;
         c.gridy = 0;
-        this.add(new PanelCreator(criteria, "Crust"), c);
+        PanelCreator crust = new PanelCreator(criteria, "Crust");
+        this.add(crust, c);
 
         criteria.clear();
-        criteria.put("Small", "2$");
-        criteria.put("Medium", "3.2$");
-        criteria.put("Large", "4.27$");
+        criteria.put("Small", "$2");
+        criteria.put("Medium", "$3.2");
+        criteria.put("Large", "$4.27");
         c.gridx = 1;
         c.gridy = 0;
-        this.add(new PanelCreator(criteria, "Size"), c);
+
+        PanelCreator size = new PanelCreator(criteria, "Size");
+        this.add(size, c);
 
         criteria.clear();
-        criteria.put("Hawaiian", "7$");
-        criteria.put("Pepperoni", "7$");
-        criteria.put("Ham & Cheese", "7$");
-        criteria.put("Vegan", "7$");
-        criteria.put("Cheese", "7$");
+        criteria.put("Hawaiian", "$12.50");
+        criteria.put("Pepperoni", "$13.75");
+        criteria.put("Ham & Cheese", "$10");
+        criteria.put("Vegan", "$12");
+        criteria.put("Cheese", "$9");
+
         c.gridx = 2;
         c.gridy = 0;
-        this.add(new PanelCreator(criteria, "Variation"), c);
+        c.gridheight = 2;
+        c.gridwidth = 1;
 
+        PanelCreator variation = new PanelCreator(criteria, "Variation");
+        this.add(variation, c);
+
+        criteria.clear();
+        criteria.put("Take-Out", "$1.75");
+        criteria.put("Dine-In", "$.25");
+
+        c.gridx = 0;
+        c.gridy = 1;
+        c.gridheight = 1;
+        c.gridwidth = 1;
+
+        PanelCreator dine = new PanelCreator(criteria, "Dine");
+        this.add(dine, c);
+
+        criteria.clear();
+        criteria.put("Coke", "$2.99");
+        criteria.put("Sprite", "$2.79");
+
+        c.gridx = 1;
+        c.gridy = 1;
+        c.gridheight = 1;
+        c.gridwidth = 1;
+
+        PanelCreator drinks = new PanelCreator(criteria, "Drinks");
+        this.add(drinks, c);
+
+        createCostPanel();
         // atlast setting visibility
         this.setVisible(true);
+    }
+
+    public void createCostPanel() {
+        GridBagConstraints c = new GridBagConstraints();
+
+        c.insets = new Insets(5, 2, 3, 5);
+        c.gridx = 0;
+        c.gridy = 2;
+        c.weighty = 1;
+        c.weightx = 0;
+        c.anchor = GridBagConstraints.NORTHWEST;
+        c.fill = GridBagConstraints.BOTH;
+        c.gridwidth = 2;
+        c.gridheight = 1;
+
+        costpanel costpanel = new costpanel();
+        this.add(costpanel, c);
+
+        c.gridwidth = 1;
+        c.gridheight = 1;
+        c.gridx = 2;
+        c.gridy = 2;
+
+        this.add(new transaction(), c);
+
     }
 }
